@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/social/static/css/main.615103aa.chunk.css",
-    "main.js": "/social/static/js/main.a28fcde8.chunk.js",
-    "main.js.map": "/social/static/js/main.a28fcde8.chunk.js.map",
+    "main.js": "/social/static/js/main.e669ef43.chunk.js",
+    "main.js.map": "/social/static/js/main.e669ef43.chunk.js.map",
     "runtime-main.js": "/social/static/js/runtime-main.4ea0bfc6.js",
     "runtime-main.js.map": "/social/static/js/runtime-main.4ea0bfc6.js.map",
-    "static/js/2.3da71358.chunk.js": "/social/static/js/2.3da71358.chunk.js",
-    "static/js/2.3da71358.chunk.js.map": "/social/static/js/2.3da71358.chunk.js.map",
+    "static/js/2.5c99d015.chunk.js": "/social/static/js/2.5c99d015.chunk.js",
+    "static/js/2.5c99d015.chunk.js.map": "/social/static/js/2.5c99d015.chunk.js.map",
     "static/css/3.812850ef.chunk.css": "/social/static/css/3.812850ef.chunk.css",
     "static/js/3.a96eb0c8.chunk.js": "/social/static/js/3.a96eb0c8.chunk.js",
     "static/js/3.a96eb0c8.chunk.js.map": "/social/static/js/3.a96eb0c8.chunk.js.map",
     "index.html": "/social/index.html",
-    "precache-manifest.c4ec944e2c6bca15cc6f3ed91b486797.js": "/social/precache-manifest.c4ec944e2c6bca15cc6f3ed91b486797.js",
+    "precache-manifest.28d06f8b100ea458125dc3d14f0ea5ea.js": "/social/precache-manifest.28d06f8b100ea458125dc3d14f0ea5ea.js",
     "service-worker.js": "/social/service-worker.js",
     "static/css/3.812850ef.chunk.css.map": "/social/static/css/3.812850ef.chunk.css.map",
     "static/css/main.615103aa.chunk.css.map": "/social/static/css/main.615103aa.chunk.css.map",
-    "static/js/2.3da71358.chunk.js.LICENSE.txt": "/social/static/js/2.3da71358.chunk.js.LICENSE.txt",
+    "static/js/2.5c99d015.chunk.js.LICENSE.txt": "/social/static/js/2.5c99d015.chunk.js.LICENSE.txt",
     "static/media/161-512.png": "/social/static/media/161-512.67154ed8.png",
     "static/media/Ripple-1s-200px.svg": "/social/static/media/Ripple-1s-200px.7e33b709.svg",
     "static/media/insta.png": "/social/static/media/insta.fc6f0c2b.png",
@@ -23,8 +23,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.4ea0bfc6.js",
-    "static/js/2.3da71358.chunk.js",
+    "static/js/2.5c99d015.chunk.js",
     "static/css/main.615103aa.chunk.css",
-    "static/js/main.a28fcde8.chunk.js"
+    "static/js/main.e669ef43.chunk.js"
   ]
 }
