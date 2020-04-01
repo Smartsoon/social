@@ -1,0 +1,94 @@
+.friends {
+    /*display: inline;*/
+}
+
+.searchNewFriends {
+    display: flex;
+    flex-wrap: wrap;
+    width: 800px;
+    height: 600px;
+    overflow: auto;
+    position: fixed;
+    top: 200px;
+    margin-left: 50px;
+}
+
+.searchNewFriends::-webkit-scrollbar {
+    width: 0;
+}
+
+.myFriends {
+    display: inline-block;
+    position: fixed;
+    left: 1150px;
+    top: 200px;
+    border-left: 2px solid black;
+    height: 600px;
+    width: 1000px;
+    overflow: auto;
+}
+
+.followBtn {
+    display: block;
+    width: auto;
+    height: 20px;
+    color: black;
+    margin: 5px auto;
+}
+
+.avatar {
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin: 0 auto;
+}
+
+.user,
+.friend {
+    margin: 20px;
+}
+
+.user {
+    width: 300px;
+    border: 2px solid rgba(0, 0, 0, 0.41);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.name {
+    margin: 5px;
+}
+
+.friend {
+    display: flex;
+    margin: 20px;
+    width: 500px;
+    height: 180px;
+    border: 2px solid rgba(0, 0, 0, 0.41);
+    border-radius: 10px;
+}
+
+.nameInfo {
+    margin: 5px;
+}
+
+.locationInfo {
+    margin: 5px;
+}
+
+.friendInfo {
+    margin: 5px;
+}
+
+.selectedPage {
+    font-weight: bold;
+}
+
+.pagesBtns > * {
+    display: block;
+    margin: 2px;
+    cursor: pointer;
+}
+
+

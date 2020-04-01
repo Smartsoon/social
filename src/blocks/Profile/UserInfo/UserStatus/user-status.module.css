@@ -1,0 +1,17 @@
+.userInfo_status_wrapper {
+    margin: 0 auto;
+    width: max-content;
+    /*height: max-content;*/
+}
+
+/*.userInfo_status_underwrapper {*/
+/*}*/
+
+.userInfo_status {
+    font-weight: lighter;
+    font-size: 14px;
+}
+
+.userInfo_status_wrapper input {
+    color: black;
+}

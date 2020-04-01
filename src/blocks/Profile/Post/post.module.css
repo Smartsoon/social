@@ -1,0 +1,114 @@
+.message {
+    position: relative;
+    margin: 20px 100px 40px 10%;
+    padding: 10px;
+    background-color: rgba(183,140,176,0.3);
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 82%;
+    height: auto;
+    user-select: text;
+    display: flex;
+}
+
+.avatar {
+    width: 10%;
+    height: 10%;
+    user-select: none;
+}
+
+.mesContent {
+    position: relative;
+    margin-left: 40px;
+    user-select: text;
+    /*margin: 10px 0 10px 40px;*/
+}
+
+.like {
+    display: inline-block;
+    position: absolute;
+    top: 100%;
+}
+
+.likeBtn {
+    background-color: rgba(0,0,0,0);
+    border: none;
+    cursor: pointer;
+    outline-width: 0;
+    color: aqua;
+}
+
+.likeBtn:hover {
+    color: darkturquoise;
+}
+
+.createWallMessage {
+    margin: 50px 100px 0 10%;
+    display: block;
+}
+
+.WallMessageArea {
+
+}
+
+.WallMessageArea * {
+    margin: 10px 0 30px 0;
+    width: 100%;
+    height: 100px;
+    color: black;
+    /*border: 2px solid black;*/
+    border-radius: 10px;
+    resize: none;
+    outline: none;
+}
+
+.submitWallMessage {
+    position: relative;
+    display: block;
+    left: 45%;
+    width: 120px;
+    height: 50px;
+    color: black;
+    margin-left: 10px;
+    border: 2px solid black;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.submitWallMessage:hover {
+    background-color: bisque;
+    cursor: pointer;
+}
+
+.WallMessageArea:focus,
+.submitWallMessage:focus {
+    outline-width: 0;
+}
+.messagesContent {
+    position: fixed;
+    margin: 50px 50px 20px 50px;
+    border-radius: 20px;
+    height: 45vh;
+    overflow: auto;
+    border-bottom: 2px solid rgba(0,0,0,0.1);
+    border-top: 2px solid rgba(0,0,0,0.1);
+
+}
+
+.messagesContent::-webkit-scrollbar {
+    width: 5px;
+
+}
+
+.messagesContent::-webkit-scrollbar-thumb {
+    background-color: rgba(64, 62, 62, 0.2);
+    border-radius: 50px;
+}
+
+.error * {
+    border: 1px solid red;
+}
+
+
+
+

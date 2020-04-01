@@ -1,0 +1,79 @@
+.nav {
+    grid-area: nav;
+    background-color: rgba(255,237,246,0.4);
+    display: grid;
+    grid-template-areas:
+        'nav_wall'
+        'nav_message'
+        'nav_friends'
+        'nav_audio'
+        'nav_settings';
+    grid-template-columns: 1fr;
+    grid-template-rows: 60px 60px 60px 60px 60px;
+    user-select: none;
+    height: 33vh;
+    padding: 1vh;
+    border: 2px solid rgba(0,0,0,0.0);
+    border-radius: 15px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.5);
+    z-index: 110;
+}
+
+.nav > * {
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid rgba(0,0,0,0.5);
+    border-radius: 10px;
+    text-align: center;
+    align-content: center;
+    margin: 2vh 0 0 0;
+    background-color: rgba(0,0,0,0.78);
+    padding: 5px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.48);
+
+}
+
+.nav_wall {
+    grid-area: nav_wall;
+}
+
+.nav_message {
+    grid-area: nav_message;
+}
+
+.nav_friends {
+    grid-area: nav_friends;
+}
+
+.nav_audio {
+    grid-area: nav_audio;
+}
+
+.nav_settings {
+    grid-area: nav_settings;
+}
+
+.nav_friends:hover,
+.nav_message:hover,
+.nav_audio:hover,
+.nav_wall:hover,
+.nav_settings:hover {
+    background-color: rgba(0,0,0,0.5);
+}
+
+.nav_friends:active,
+.nav_message:active,
+.nav_audio:active,
+.nav_wall:active,
+.nav_settings:active {
+    background-color: white;
+}
+
+.active {
+    background-color: darkturquoise;
+}
+
+.active:hover {
+    background-color: darkturquoise;
+}
+

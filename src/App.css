@@ -1,0 +1,37 @@
+* {
+  color: #fffefa;
+  text-decoration: none;
+  user-select: none;
+}
+
+.App {
+  display: grid;
+  grid-template-areas:
+    'header header'
+    'nav content'
+    'footer footer';
+  grid-template-rows: 1fr 12fr 100px;
+  grid-template-columns: 2fr 12fr;
+  height: 100vh;
+  box-sizing: border-box;
+  grid-gap: 1vh;
+  padding: 1vh;
+  background-color: rgba(54,242,255,0.05);
+  border: 2px solid rgba(54,242,255,0.05);
+  border-radius: 15px;
+
+}
+
+.content {
+  grid-area: content;
+  background-color: rgba(38,77,80,0.3);
+  display: block;
+  border: 2px solid rgba(0,0,0,0.0);
+  border-radius: 15px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.5);
+  user-select: none;
+  overflow: hidden;
+
+}
+
+

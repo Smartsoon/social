@@ -1,0 +1,13 @@
+.people {
+    margin: 10px;
+    color: silver;
+}
+
+.active {
+    color: black;
+}
+
+/*.active:after {*/
+/*    content: "->";*/
+/*    color: black;*/
+/*}*/

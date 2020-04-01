@@ -1,0 +1,134 @@
+.header {
+    grid-area: header;
+    background-color: rgba(54,242,255,0.2);
+    display: grid;
+    grid-template-areas:
+        'logo . loginBlock';
+    grid-template-columns: 100px 5fr auto;
+    grid-template-rows: 1fr;
+    grid-gap: 5px;
+    align-items: center;
+    border: 2px solid rgba(0,0,0,0.0);
+    border-radius: 15px;
+    user-select: none;
+    box-shadow: 0 0 4px rgba(0,0,0,0.48);
+    z-index: 100;
+}
+
+.header > * {
+    text-align: center;
+    padding: 2px;
+    /*margin: 10px;*/
+}
+
+.logo {
+    grid-area: logo;
+    border: none;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png");
+    height: 90%;
+    width: 90%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(255,237,246,0);
+    justify-items: center;
+}
+
+.register,
+.login,
+.logout {
+    position: relative;
+    margin: 10px;
+    background-color: rgba(0,0,0,0.78);
+    border: 2px solid rgba(0,0,0,0.5);
+    border-radius: 10px;
+    padding: 8px;
+    width: max-content;
+    height: 36px;
+    cursor: pointer;
+}
+
+
+.register:hover,
+.login:hover,
+.logout:hover {
+    background-color: rgba(0,0,0,0.5);
+}
+
+.loginBlock {
+    box-shadow: none;
+    grid-area: loginBlock;
+    margin: 4px;
+    display: inline-flex;
+}
+
+.loginBlock * {
+    color: black;
+}
+
+.loginInputs {
+    margin: 10px;
+    border-radius: 10px;
+    outline-width: 0;
+    color: black;
+    width: max-content;
+    height: 30px;
+}
+
+.headerAvatar {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    margin: 10px;
+}
+
+.headerLogin {
+    color: black;
+    position: relative;
+    margin: 20px 10px 20px 0;
+}
+
+.headerLogin * {
+    color: black;
+}
+
+.loginCheckBox {
+    position: relative;
+    margin: 19px 10px 17px 0;
+    color: black;
+    width: 40px;
+    height: 20px;
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: rgba(0,0,0,0.2);
+    outline: none;
+    border-radius: 20px;
+    transition: 0.5s;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.4);
+    cursor: pointer;
+}
+
+.loginCheckBox:checked {
+    background-color: rgba(14,93,241,0.7);
+}
+
+.loginCheckBox:before {
+    content: "";
+    left: 0;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+    background-color: #fff;
+    box-shadow: rgba(0 0 0 0.2);
+    transform: scale(1, 1);
+    transition: 0.5s;
+
+}
+
+.loginCheckBox:checked:before {
+    left: 20px;
+}
+
+.center {
+
+}
