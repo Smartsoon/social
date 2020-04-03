@@ -11,17 +11,20 @@ export const authAPI = {
         return (
             instance.get(`auth/me`)
                 .then(response => response.data)
-        )},
+        )
+    },
 
     doLogin(email, password, rememberMe = false) {
         return (
-            instance.post(`auth/login`, { email, password, rememberMe })
-        )},
+            instance.post(`auth/login`, {email, password, rememberMe})
+        )
+    },
 
     doLogout() {
         return (
             instance.delete(`auth/login`)
-        )}
+        )
+    }
 };
 
 export const profileAPI = {
@@ -43,6 +46,14 @@ export const profileAPI = {
             instance.put(`profile/status/`, {status: status})
         )
     },
+
+    updateAvatar(file) {
+        const formData = new FormData();
+        formData.append("image", file);
+        return instance.put(`profile/photo/`, formData, {
+            headers: { "Content-Type": "multipart/form-data" }
+        })
+    }
 };
 
 const friendsAPI = {

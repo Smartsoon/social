@@ -12,9 +12,17 @@ import UserStatusHook from "./UserStatus/user-status-hook.jsx"
 
 const UserInfo = (props) => {
 
+    const onAvatarSelected = (e) => {
+        if (e.target.files.length) {
+            props.savedAvatar(e.target.files[0])
+        }
+    };
+
     if (!props.profile) {
         return <Preloader/>
     } else return (
+
+
 
         <div>
             <div className={styles.profile_userInfo}>
@@ -35,10 +43,11 @@ const UserInfo = (props) => {
                 </div>
 
             </div>
+            <div>
 
                 <img className={styles.avatar} src={props.profile.photos.large != null ? props.profile.photos.large : "https://kupi.cn.ua/theme/img/admin/noava.png"} alt=""/>
-
-
+            {props.profile.userId === props.id && <input type="file" onChange={onAvatarSelected}/>}
+            </div>
 
         </div>
     )

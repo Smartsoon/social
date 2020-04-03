@@ -3,6 +3,7 @@ import {profileAPI} from "../api/api";
 const ADD_POST = 'ADD-POST';
 const SET_USER_PROFILE = "SET-SER-PROFILE";
 const SET_USER_STATUS = "SET-USER-STATUS";
+const SET_USER_AVATAR = "SET-USER-AVATAR";
 
 let initialStore = {
     postsData: [
@@ -37,10 +38,17 @@ const ProfileReducer = (state = initialStore, action) => {
                 profile: action.userProfile
             }
         }
+
         case SET_USER_STATUS: {
             return {
                 ...state,
                 statusText: action.status
+            }
+        }
+        case SET_USER_AVATAR: {
+            return {
+                ...state,
+                profile: {...state.profile, photos: action.link},
             }
         }
         default:
@@ -51,21 +59,29 @@ const ProfileReducer = (state = initialStore, action) => {
 export const addNewPost = (newPost) => ({type: ADD_POST, newPost});
 export const setUserProfile = (userProfile) => ({type: SET_USER_PROFILE, userProfile});
 export const setUserStatus = (status) => ({type: SET_USER_STATUS, status});
+export const setUserAvatar = (link) => ({type: SET_USER_AVATAR, link});
 
 export const getUserProfileTC = (userId) => async (dispatch) => {
     let data = await profileAPI.getUserProfile(userId);
-        dispatch(setUserProfile(data));
+    dispatch(setUserProfile(data));
 };
 
 export const getUserStatusTC = (userId) => async (dispatch) => {
     let response = await profileAPI.getUserStatus(userId);
-        dispatch(setUserStatus(response.data))
+    dispatch(setUserStatus(response.data))
 };
 
 export const setUserStatusTC = (status) => async (dispatch) => {
     let response = await profileAPI.setUserStatus(status);
     if (response.data.resultCode === 0) {
         dispatch(setUserStatus(status))
+    }
+};
+
+export const savedAvatarTC = (file) => async (dispatch) => {
+    let response = await profileAPI.updateAvatar(file);
+    if (response.data.resultCode === 0) {
+        dispatch(setUserAvatar(response.data.data.photos))
     }
 };
 

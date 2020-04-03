@@ -1,7 +1,7 @@
 import {
     addNewPost,
     getUserProfileTC,
-    getUserStatusTC,
+    getUserStatusTC, savedAvatarTC,
     setUserStatusTC
 } from "../../redux/profile-reducer";
 import {connect} from "react-redux";
@@ -15,14 +15,22 @@ import {compose} from "redux";
 
 class ProfileC extends React.Component {
 
+    refreshProfile() {
+    let userId = this.props.match.params.userId;
+    if (!userId) {
+        userId = this.props.id;
+    }
+    this.props.getUserProfileTC(userId);
+    this.props.getUserStatusTC(userId)
+}
 
     componentDidMount() {
-        let userId = this.props.match.params.userId;
-        if (!userId) {
-            userId = this.props.id;
-        }
-        this.props.getUserProfileTC(userId);
-        this.props.getUserStatusTC(userId)
+        this.refreshProfile()
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.props.match.params.userId !== prevProps.match.params.userId)
+        this.refreshProfile()
     }
 
     addPost = (values) => {
@@ -36,7 +44,7 @@ class ProfileC extends React.Component {
     render() {
         return (
             <main>
-                <UserInfo profile={this.props.profile} id={this.props.id} statusText={this.props.statusText} setUserStatus={this.props.setUserStatusTC}/>
+                <UserInfo savedAvatar={this.props.savedAvatarTC} profile={this.props.profile} id={this.props.id} statusText={this.props.statusText} setUserStatus={this.props.setUserStatusTC}/>
                 <Posts addPost={this.addPost} postsData={this.props.postsData}/>
             </main>
         )};
@@ -66,6 +74,6 @@ const mapStateToProps = (state) => {
 
 export default compose (
     withRegisterRedirect,
-    connect(mapStateToProps, {addNewPost, getUserProfileTC, getUserStatusTC, setUserStatusTC}),
+    connect(mapStateToProps, {addNewPost, getUserProfileTC, getUserStatusTC, setUserStatusTC, savedAvatarTC}),
     withRouter,
 ) (ProfileC);

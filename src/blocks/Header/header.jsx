@@ -12,7 +12,7 @@ const Header = (props) => {
                 <div className={styles.loginBlock}>
                     <a className={styles.headerLogin}>{props.login}</a>
 
-                    <img className={styles.headerAvatar} src={avatarImg} alt=""/>
+                    <img className={styles.headerAvatar} src={`https://social-network.samuraijs.com/activecontent/images/users/${props.id}/user.jpg?v=7`} alt=""/>
 
                     <button onClick={props.logoutTC} className={styles.logout}>Выйти</button>
 

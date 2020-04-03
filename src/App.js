@@ -14,8 +14,6 @@ import {compose} from "redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./blocks/common/Preloader/preloader";
 
-// import Audio from "./blocks/Audio/audio";
-
 const Audio = React.lazy(() => import('./blocks/Audio/audio'));
 
 
@@ -23,7 +21,6 @@ class App extends Component {
 
     componentDidMount() {
         this.props.initializeApp();
-
     }
 
     render() {
@@ -56,9 +53,9 @@ class App extends Component {
     }
 }
 
-const mapStateToProps = (state) => (
-    {initialize: state.application.initialize}
-);
+const mapStateToProps = (state) => ({
+    initialize: state.application.initialize,
+});
 
 export default compose(
     withRouter,
