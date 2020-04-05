@@ -1,4 +1,5 @@
 import {profileAPI} from "../api/api";
+import {getOwnAvatarTC} from "./header-reducer";
 
 const ADD_POST = 'ADD-POST';
 const SET_USER_PROFILE = "SET-SER-PROFILE";
@@ -78,10 +79,12 @@ export const setUserStatusTC = (status) => async (dispatch) => {
     }
 };
 
-export const savedAvatarTC = (file) => async (dispatch) => {
+export const savedAvatarTC = (file) => async (dispatch, getState) => {
     let response = await profileAPI.updateAvatar(file);
     if (response.data.resultCode === 0) {
         dispatch(setUserAvatar(response.data.data.photos))
+        const id = getState().auth.id;
+        dispatch(getOwnAvatarTC(id));
     }
 };
 

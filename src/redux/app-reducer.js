@@ -20,14 +20,10 @@ const appReducer = (state = InitialStore, action) => {
 
 export const initializeApp = () => {
     return (dispatch) => {
-        let readyToInit = dispatch(authTC());
-
-        Promise.all([readyToInit]).then(() => {
-            dispatch(setInitializationStatus())
+        const auth = dispatch(authTC());
+        Promise.all([auth]).then(() => {
+            dispatch(setInitializationStatus());
         });
-
-
-
     }};
 
 export const setInitializationStatus = () => ({type: SET_INITIALIZATION_STATUS});

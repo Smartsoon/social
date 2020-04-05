@@ -12,7 +12,7 @@ class HeaderC extends React.Component {
     }
 
     render() {
-        return <Header id={this.props.id} doLogout={this.logoutTC} doLogin={this.doLogin} {...this.props}/>
+        return <Header ownAvatar={this.props.ownAvatar} id={this.props.id} doLogout={this.logoutTC} doLogin={this.doLogin} {...this.props}/>
     }
 }
 
@@ -20,7 +20,8 @@ class HeaderC extends React.Component {
 const mapStateToProps = (state) => ({
     isLoggedIn: state.auth.isLoggedIn,
     login: state.auth.login,
-    id: state.auth.id
+    id: state.auth.id,
+    ownAvatar: state.auth.ownAvatar
 });
 
 let withURLHeaderAPI = withRouter(HeaderC);

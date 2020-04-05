@@ -11,33 +11,3 @@ export const FormControl = Element => ({input, meta, ...props}) => {
             </div>
         )
 };
-
-
-
-// export const TextInput = ({input, meta, ...props}) => {
-// debugger;
-//     const errorRules = meta.touched && meta.error;
-//     return (
-//         <div>
-//             <textarea {...input} {...props} className={(errorRules ? styles.error : "")}/>
-//
-//             {errorRules && <span>{meta.error}</span>}
-//
-//         </div>
-//     )
-// };
-//
-// export const Input = ({input, meta, ...props}) => {
-// debugger;
-//     const errorRules = meta.touched && meta.error;
-//     return (
-//         <div>
-//             <input {...input} {...props} className={(errorRules ? styles.error : "")}/>
-//
-//             {errorRules && <span>{meta.error}</span>}
-//
-//         </div>
-//
-//     )
-//
-// };

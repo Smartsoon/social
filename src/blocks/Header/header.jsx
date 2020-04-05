@@ -1,6 +1,5 @@
 import React from "react";
 import styles from './header.module.css';
-import avatarImg from "../../img/defAva.jpg";
 import {Login} from "./Login/login";
 
 const Header = (props) => {
@@ -12,7 +11,7 @@ const Header = (props) => {
                 <div className={styles.loginBlock}>
                     <a className={styles.headerLogin}>{props.login}</a>
 
-                    <img className={styles.headerAvatar} src={`https://social-network.samuraijs.com/activecontent/images/users/${props.id}/user.jpg?v=7`} alt=""/>
+                    <img className={styles.headerAvatar} src={props.ownAvatar} alt=""/>
 
                     <button onClick={props.logoutTC} className={styles.logout}>Выйти</button>
 

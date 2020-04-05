@@ -3,14 +3,16 @@ import styles from "../header.module.css";
 import {Field, reduxForm} from "redux-form";
 import {FormControl} from "../../../utils/formsControls/text-input";
 import {requiredField} from "../../../utils/validators/validator";
-import {Redirect} from "react-router-dom";
+const LoginField = FormControl('input');
+const PasswordField = FormControl("input");
+
 
 const LoginForm = (props) => {
     return (
         <form className={styles.loginBlock} onSubmit={props.handleSubmit}>
 
             <div>
-                <Field component={FormControl("input")}
+                <Field component={LoginField}
                        placeholder={"Введите логин..."}
                        className={styles.loginInputs}
                        name="email"
@@ -19,7 +21,7 @@ const LoginForm = (props) => {
 
             <div>
                 <Field validate={requiredField}
-                       component={FormControl("input")}
+                       component={PasswordField}
                        placeholder={"Введите пароль..."}
                        className={styles.loginInputs}
                        name="password"
