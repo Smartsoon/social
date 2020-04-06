@@ -18,7 +18,7 @@ const Header = (props) => {
                 </div> : null}
             {!props.isLoggedIn ?
                 <div className={styles.loginBlock}>
-                    <Login doLogin={props.doLogin} {...props}/>
+                    <Login currentCaptcha={props.currentCaptcha} doLogin={props.doLogin} {...props}/>
                 </div> : null
             }
         </header>

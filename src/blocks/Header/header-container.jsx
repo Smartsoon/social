@@ -7,12 +7,15 @@ import {loginTC, logoutTC} from "../../redux/header-reducer";
 
 class HeaderC extends React.Component {
 
-    doLogin(email, password, rememberMe) {
-        this.loginTC(email, password, rememberMe);
+    doLogin(email, password, rememberMe, captcha) {
+        this.loginTC(email, password, rememberMe, captcha);
     }
 
     render() {
-        return <Header ownAvatar={this.props.ownAvatar} id={this.props.id} doLogout={this.logoutTC} doLogin={this.doLogin} {...this.props}/>
+        return <Header currentCaptcha={this.props.currentCaptcha}
+                       ownAvatar={this.props.ownAvatar}
+                       id={this.props.id} doLogout={this.logoutTC}
+                       doLogin={this.doLogin} {...this.props}/>
     }
 }
 
@@ -21,7 +24,8 @@ const mapStateToProps = (state) => ({
     isLoggedIn: state.auth.isLoggedIn,
     login: state.auth.login,
     id: state.auth.id,
-    ownAvatar: state.auth.ownAvatar
+    ownAvatar: state.auth.ownAvatar,
+    currentCaptcha: state.auth.currentCaptcha
 });
 
 let withURLHeaderAPI = withRouter(HeaderC);

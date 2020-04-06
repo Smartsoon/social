@@ -3,6 +3,7 @@ import React from "react";
 import {Field, reduxForm} from "redux-form";
 import {FormControl} from "../../../utils/formsControls/text-input";
 import {maxLengthCreator, requiredField} from "../../../utils/validators/validator";
+const newMessageArea = FormControl("textarea");
 
 let maxLength = maxLengthCreator(200);
 
@@ -11,7 +12,7 @@ const SendMessageAreaForm = ({handleSubmit}) => {
         <form onSubmit={handleSubmit} className={styles.messageInput}>
             <div className={styles.messageArea}>
                 <Field validate={[requiredField, maxLength]}
-                       component={FormControl("textarea")}
+                       component={newMessageArea}
                        name="newMessageBody"
                        placeholder="Введите сообщение..."
                        >

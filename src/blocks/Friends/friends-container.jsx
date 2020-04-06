@@ -57,40 +57,6 @@ const mapStateToProps = (state) => {
     }
 };
 
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         doFollow: (userId) => {
-//             let action = doFollowAC(userId);
-//             dispatch(action)
-//         },
-//
-//         doUnfollow: (userId) => {
-//             let action = doUnfollowAC(userId);
-//             dispatch(action)
-//         },
-//
-//         setUsers: (users) => {
-//             let action = setUsersAC(users);
-//             dispatch(action);
-//         },
-//
-//         setCurrentPage: (pageNumber) => {
-//             let action = setCurrentPageAC(pageNumber);
-//             dispatch(action)
-//         },
-//
-//         setTotalUsersCount: (overallCount) => {
-//             let action = setTotalUsersCountAC(overallCount);
-//             dispatch(action)
-//     },
-//         setFetchingStatus: (fetchingStatus) =>{
-//             let action = setIsFetchingAC(fetchingStatus);
-//             dispatch(action)
-//         }
-//
-//     }
-// };
-
 export default compose (
 connect(mapStateToProps, {setCurrentPage, getUsersTC, unFollowTC, followTC}),
 withRegisterRedirect

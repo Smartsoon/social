@@ -14,9 +14,9 @@ export const authAPI = {
         )
     },
 
-    doLogin(email, password, rememberMe = false) {
+    doLogin(email, password, rememberMe = false, captcha) {
         return (
-            instance.post(`auth/login`, {email, password, rememberMe})
+            instance.post(`auth/login`, {email, password, rememberMe, captcha})
         )
     },
 
@@ -25,6 +25,14 @@ export const authAPI = {
             instance.delete(`auth/login`)
         )
     }
+};
+
+export const securityAPI = {
+    getCaptcha() {
+        return (
+            instance.get(`security/get-captcha-url`)
+        )
+    },
 };
 
 export const profileAPI = {
@@ -55,6 +63,9 @@ export const profileAPI = {
         })
     }
 };
+
+
+
 
 const friendsAPI = {
 

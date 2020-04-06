@@ -1,15 +1,17 @@
-import {authAPI, profileAPI} from "../api/api";
+import {authAPI, profileAPI, securityAPI} from "../api/api";
 import {stopSubmit} from "redux-form"
 
 const SET_USER_DATA = "SET-USER-DATA";
 const SET_OWN_AVATAR = "SET_OWN_AVATAR";
+const SET_CAPTCHA = "SET-CAPTCHA";
 
 let InitialStore = {
     id: null,
     login: null,
     email: null,
     isLoggedIn: false,
-    ownAvatar: null
+    ownAvatar: null,
+    currentCaptcha: null
 };
 
 const headerReducer = (state = InitialStore, action) => {
@@ -27,6 +29,13 @@ const headerReducer = (state = InitialStore, action) => {
               ownAvatar: action.avatar
 
             };
+
+        case SET_CAPTCHA:
+            return {
+            ...state,
+            currentCaptcha: action.captcha
+            };
+
         default:
             return state;
     }
@@ -36,8 +45,8 @@ export const setAuthUserData = (id, email, login, loginStatus) => ({
     type: SET_USER_DATA,
     data: {id, email, login, isLoggedIn: loginStatus}
 });
-
 export const setOwnAvatar = (avatar) => ({type: SET_OWN_AVATAR, avatar});
+export const setCaptcha = (captcha) => ({type: SET_CAPTCHA, captcha});
 
 export const authTC = () => {
     return async (dispatch) => {
@@ -50,16 +59,25 @@ export const authTC = () => {
     }
 };
 
+export const getCaptchaTC = () => async (dispatch) => {
+    const response = await securityAPI.getCaptcha();
+    dispatch(setCaptcha(response.data.url))
+};
+
 export const getOwnAvatarTC = (id) => async (dispatch) => {
     const response = await profileAPI.getUserProfile(id);
     dispatch(setOwnAvatar(response.photos.small))
 };
 
-export const loginTC = (email, password, rememberMe) => async (dispatch) => {
-    const response = await authAPI.doLogin(email, password, rememberMe);
+export const loginTC = (email, password, rememberMe, captcha) => async (dispatch) => {
+    const response = await authAPI.doLogin(email, password, rememberMe, captcha);
     if (response.data.resultCode === 0) {
         dispatch(authTC())
-    } else {
+    }
+    else {
+        if (response.data.resultCode === 10) {
+            dispatch(getCaptchaTC())
+        }
         let message = response.data.messages.length > 0 ? response.data.messages[0] : "Error";
         dispatch(stopSubmit("login", {password: message}))
     }

@@ -1,14 +1,13 @@
 import React from "react";
 import styles from './messages.module.css';
-import {Redirect} from "react-router-dom";
 
-const Message = ({message}) => {
+const Messages = ({messagesData}) => {
 
     return(
         <div className={styles.message}>
-            <p>{message}</p>
+            {messagesData.map(message => <p key={message.id}>{message.message}</p>)}
         </div>
     )
 };
 
-export default Message;
+export default Messages;

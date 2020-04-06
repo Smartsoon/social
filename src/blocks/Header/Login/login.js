@@ -5,11 +5,20 @@ import {FormControl} from "../../../utils/formsControls/text-input";
 import {requiredField} from "../../../utils/validators/validator";
 const LoginField = FormControl('input');
 const PasswordField = FormControl("input");
+const CaptchaField = FormControl("input");
 
 
 const LoginForm = (props) => {
+
     return (
         <form className={styles.loginBlock} onSubmit={props.handleSubmit}>
+
+
+            {props.currentCaptcha ? <Field component={CaptchaField}
+                                           placeholder={"Введите символы"}
+                                           name="captcha"
+                                           validate={requiredField}/> : null}
+            {props.currentCaptcha ? <img src={props.currentCaptcha} alt=""/> : null}
 
             <div>
                 <Field component={LoginField}
@@ -50,12 +59,12 @@ const ReduxLoginForm = reduxForm({form: "login"})(LoginForm);
 
 export const Login = (props) => {
     const onSubmit = (formData) => {
-        props.doLogin(formData.email, formData.password, formData.rememberMe);
+        props.doLogin(formData.email, formData.password, formData.rememberMe, formData.captcha);
     };
 
     return (
         <div>
-            <ReduxLoginForm onSubmit={onSubmit}/>
+            <ReduxLoginForm currentCaptcha={props.currentCaptcha} onSubmit={onSubmit}/>
         </div>
     )
 };
